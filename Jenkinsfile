@@ -6,7 +6,7 @@ agent {label 'fco'}
         sh'''
         echo "inicia build"
         ls 
-        
+        nodejs --version
         '''
       }
     }
