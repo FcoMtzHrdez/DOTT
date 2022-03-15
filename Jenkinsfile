@@ -1,19 +1,19 @@
 pipeline{
   agent {label 'fco'}
   stages{
-    stage ('Build'){
+    stage('Build'){
       steps{
         sh'''
         echo "inicia build"
         '''
       }
     }
-    stage ('test'){
+    stage('test'){
       steps{
         echo "do something"
       }
     }
-    stage ('Deploy'){
+    stage('Deploy'){
       steps{
        
         sh'''
