@@ -6,6 +6,7 @@ agent {label 'fco'}
         sh'''
         echo "inicia build"
         ls -l
+        
         '''
       }
     }
