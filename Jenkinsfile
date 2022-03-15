@@ -1,5 +1,7 @@
 pipeline {
-agent {label 'fco'}
+agent {
+  docker { image 'node' }
+}
   stages{
     stage('Build'){
       steps{
