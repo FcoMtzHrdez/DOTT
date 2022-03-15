@@ -7,6 +7,8 @@ pipeline {
         echo "inicia build"
         ls 
         nodejs --version
+        cd cidr_convert_api/node
+        npm install
         '''
       }
     }
