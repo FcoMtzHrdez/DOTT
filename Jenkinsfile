@@ -12,5 +12,18 @@ pipeline {
         '''
       }
     }
+        stage('SonarQ'){
+      steps{
+        sh'''
+        echo "inicia analisis"
+        sonar-scanner \
+          -Dsonar.organization=fcomtz \
+          -Dsonar.projectKey=cidr \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=https://sonarcloud.io
+
+        '''
+      }
+    }
   }
 }
