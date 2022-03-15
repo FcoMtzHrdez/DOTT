@@ -1,19 +1,25 @@
 pipeline{
-    agent {label 'fco'}
-    stages{
-        stage ('build'){
-            steps{
-                sh'''
-                echo "inicia build"
-                '''
-            }
-        }
-        stage ('Deploy'){
-            steps{
-                sh'''
-                echo "inicia deploy"
-                '''
-            }
-        }
+  agent {label 'fco'}
+  stages{
+    stage ('Build'){
+      steps{
+        sh'''
+        echo "inicia build"
+        '''
+      }
     }
+    stage ('test'){
+      steps{
+        echo "do something"
+      }
+    }
+    stage ('Deploy'){
+      steps{
+       
+        sh'''
+         echo "haciendo despliegue"
+        '''
+      }
+    }
+  }
 }
