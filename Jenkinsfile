@@ -5,7 +5,7 @@ agent {label 'fco'}
       steps{
         sh'''
         echo "inicia build"
-        ls -l
+        ls 
         
         '''
       }
