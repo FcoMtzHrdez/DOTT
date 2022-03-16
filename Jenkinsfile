@@ -21,7 +21,8 @@ pipeline {
           -Dsonar.organization=fcomtz \
           -Dsonar.projectKey=cidr \
           -Dsonar.sources=. \
-          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.exclusions=**/*.java
 
         '''
       }
