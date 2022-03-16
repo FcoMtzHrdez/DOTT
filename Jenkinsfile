@@ -39,7 +39,9 @@ pipeline {
 
             echo "Inicia test"
             sh 'pwd'
-            sh 'cd /cidr_convert_api/node'
+          dir ('cidr_convert_api/node'){
+            sh 'ls'
+          }
             sh 'pwd'
             sh 'npm install jest -–save-dev'
 
