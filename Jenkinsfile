@@ -41,14 +41,12 @@ pipeline {
             sh 'pwd'
           dir ('cidr_convert_api/node'){
             sh 'ls'
-          }
-            sh 'pwd'
             sh 'npm install jest -–save-dev'
 
             sh 'npm test'
-
+            sh 'pwd'
+          }
         }
-
     }
   }
 }
