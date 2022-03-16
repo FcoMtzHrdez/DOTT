@@ -14,12 +14,15 @@ pipeline {
       }
     }
         stage('SonarQ'){
+          environment {
+            SCANNER_HOME = tool 'sonar scanner'
+          }
       steps{
         
         echo "inicia analisis"
         sh 'cd cidr_convert_api/node'
         sh'''
-         /bin/sonar-scanner  \
+         $SCANNER_HOME/bin/sonar-scanner  \
         -Dsonar.organization=fcomtz \
         -Dsonar.projectKey=cidr \
         -Dsonar.sources=./cidr_convert_api/node \
