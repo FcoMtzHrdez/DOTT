@@ -21,7 +21,7 @@ pipeline {
         sonar-scanner  \
         -Dsonar.organization=fcomtz \
         -Dsonar.projectKey=cidr \
-        -Dsonar.sources=. \
+        -Dsonar.sources=./cidr_convert_api/node \
         -Dsonar.host.url=https://sonarcloud.io \
         -Dsonar.exclusions=**/*.java
         '''
