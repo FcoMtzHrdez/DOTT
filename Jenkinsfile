@@ -20,11 +20,11 @@ pipeline {
         sh 'cd cidr_convert_api/node'
         sh'''
          sonar-scanner  \
-        -Dsonar.organization=fcomtz \
-        -Dsonar.projectKey=cidr \
-        -Dsonar.sources=./cidr_convert_api/node \
-        -Dsonar.host.url=https://sonarcloud.io \
-        -Dsonar.exclusions=**/*.java
+        >-Dsonar.organization=fcomtz \
+        >-Dsonar.projectKey=cidr \
+        >-Dsonar.sources=./cidr_convert_api/node \
+        >-Dsonar.host.url=https://sonarcloud.io \
+        >-Dsonar.exclusions=**/*.java
         '''
         
       }
