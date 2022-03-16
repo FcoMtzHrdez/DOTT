@@ -15,18 +15,18 @@ pipeline {
     }
         stage('SonarQ'){
       steps{
-        sh'''
+        
         echo "inicia analisis"
-        cd cidr_convert_api/node
-         echo "${SCANNER_HOME}"
-         '${SCANNER_HOME}/bin/sonar-scanner'
-        sonar-scanner  \
+        sh 'cd cidr_convert_api/node'
+        sh'''
+         sonar-scanner  \
         -Dsonar.organization=fcomtz \
         -Dsonar.projectKey=cidr \
         -Dsonar.sources=./cidr_convert_api/node \
         -Dsonar.host.url=https://sonarcloud.io \
         -Dsonar.exclusions=**/*.java
         '''
+        
       }
     }
   }
