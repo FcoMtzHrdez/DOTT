@@ -41,6 +41,7 @@ pipeline {
             sh 'pwd'
           dir ('cidr_convert_api/node'){
             sh 'nodejs --version'
+            sh'npm jest -version'
             sh 'npm install jest -–save-dev'
 
             sh 'npm run test'
