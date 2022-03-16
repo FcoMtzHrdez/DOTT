@@ -18,7 +18,7 @@ pipeline {
         echo "inicia analisis"
         cd cidr_convert_api/node
              
-        sonar-scanner -X \
+        sonar-scanner  \
         -Dsonar.organization=fcomtz \
         -Dsonar.projectKey=cidr \
         -Dsonar.sources=. \
