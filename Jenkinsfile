@@ -17,12 +17,13 @@ pipeline {
         sh'''
         echo "inicia analisis"
         cd cidr_convert_api/node
-        sonar-scanner \
-          -Dsonar.organization=fcomtz \
-          -Dsonar.projectKey=cidr \
-          -Dsonar.sources=. \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.exclusions=**/*.java
+             
+        sonar-scanner -X \
+        -Dsonar.organization=fcomtz \
+        -Dsonar.projectKey=cidr \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=https://sonarcloud.io \
+        -Dsonar.exclusions=**/*.java
         '''
       }
     }
