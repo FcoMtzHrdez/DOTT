@@ -1,5 +1,8 @@
 pipeline {
   agent { label 'fco' }
+  environment{
+     SCANNER_HOME= tool 'sonar' 
+  }
   stages{
     stage('Build'){
       steps{
@@ -17,7 +20,8 @@ pipeline {
         sh'''
         echo "inicia analisis"
         cd cidr_convert_api/node
-             
+         echo "${SCANNER_HOME}"
+         '${SCANNER_HOME}/bin/sonar-scanner'
         sonar-scanner  \
         -Dsonar.organization=fcomtz \
         -Dsonar.projectKey=cidr \
