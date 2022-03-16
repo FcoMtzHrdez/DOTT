@@ -44,7 +44,7 @@ pipeline {
             sh'npm jest -version'
             sh 'npm install jest -–save-dev'
 
-            sh 'npm run test'
+            sh 'npm test'
             sh 'pwd'
           }
         }
