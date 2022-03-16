@@ -43,7 +43,7 @@ pipeline {
             sh 'nodejs --version'
             sh 'npm install jest -–save-dev'
 
-            sh 'npm test'
+            sh 'npm run test'
             sh 'pwd'
           }
         }
