@@ -1,8 +1,8 @@
-FROM node:9-alpine
+FROM node
 
 WORKDIR /app
 
-COPY package.json .
+COPY ./cidr_convert_api/node/package.json /app
 
 RUN while true; do npm install && break; done
 
