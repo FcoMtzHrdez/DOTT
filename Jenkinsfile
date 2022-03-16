@@ -1,8 +1,6 @@
 pipeline {
   agent { label 'fco' }
-  environment{
-     SCANNER_HOME= tool 'sonar' 
-  }
+
   stages{
     stage('Build'){
       steps{
