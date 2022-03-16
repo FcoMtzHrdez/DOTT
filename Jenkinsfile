@@ -18,14 +18,13 @@ pipeline {
         
         echo "inicia analisis"
         sh 'cd cidr_convert_api/node'
-        def scannerhome = tool 'SonarScanner';
         sh'''
-         ${scannerhome}/bin/sonar-scanner  \
-        >-Dsonar.organization=fcomtz \
-        >-Dsonar.projectKey=cidr \
-        >-Dsonar.sources=./cidr_convert_api/node \
-        >-Dsonar.host.url=https://sonarcloud.io \
-        >-Dsonar.exclusions=**/*.java
+         /bin/sonar-scanner  \
+        -Dsonar.organization=fcomtz \
+        -Dsonar.projectKey=cidr \
+        -Dsonar.sources=./cidr_convert_api/node \
+        -Dsonar.host.url=https://sonarcloud.io \
+        -Dsonar.exclusions=**/*.java
         '''
         
       }
