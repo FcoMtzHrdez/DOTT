@@ -39,12 +39,12 @@ pipeline {
 
             echo "Inicia test"
             sh 'pwd'
-          dir ('cidr_convert_api/node'){
+            dir ('cidr_convert_api/node'){
             sh 'nodejs --version'
             sh'npm jest -version'
             sh 'npm install jest -–save-dev'
 
-            sh 'npm test'
+            //sh 'npm test'//
             sh 'pwd'
           }
         }
