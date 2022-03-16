@@ -53,7 +53,7 @@ pipeline {
     stage ('build docker'){
         steps{
             echo "Creando docker"
-            sh ' docker images'
+            sh ' sudo docker images'
         }
     }
   }
