@@ -65,5 +65,16 @@ pipeline {
           
         }
     }
+
+    stage ('Deploy docker'){
+        steps{
+            echo "deployando docker"
+            sh'''
+            sudo docker ps
+            sudo docker run -d -p 80:8000 cidr-app
+            sudo docker ps
+            '''
+        }
+    }
   }
 }
