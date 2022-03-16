@@ -58,7 +58,7 @@ pipeline {
             cd cidr_convert_api/node
             pwd
             
-            sudo docker build -t cidr-app
+            sudo docker build -t cidr-app .
             sudo docker images
             '''
           
