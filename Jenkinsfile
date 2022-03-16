@@ -54,6 +54,10 @@ pipeline {
         steps{
             echo "Creando docker"
             sh ' sudo docker images'
+          sh 'cd cidr_convert_api/node'
+          sh 'pwd'
+          
+          
         }
     }
   }
