@@ -18,8 +18,9 @@ pipeline {
         
         echo "inicia analisis"
         sh 'cd cidr_convert_api/node'
+        def scannerhome = tool 'SonarScanner';
         sh'''
-         sonar-scanner  \
+         ${scannerhome}/bin/sonar-scanner  \
         >-Dsonar.organization=fcomtz \
         >-Dsonar.projectKey=cidr \
         >-Dsonar.sources=./cidr_convert_api/node \
