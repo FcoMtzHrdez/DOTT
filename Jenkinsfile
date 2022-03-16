@@ -49,5 +49,12 @@ pipeline {
           }
         }
     }
+
+    stage ('build docker'){
+        steps{
+            echo "Creando docker"
+            sudo docker images
+        }
+    }
   }
 }
