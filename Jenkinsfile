@@ -39,7 +39,7 @@ pipeline {
 
             echo "Inicia test"
             sh 'cd cidr_convert_api/node'
-            sh 'npm install jest –save-dev'
+            sh 'npm install jest -–save-dev'
 
             sh 'npm test'
 
