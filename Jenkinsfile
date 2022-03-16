@@ -13,7 +13,7 @@ pipeline {
         '''
       }
     }
-        stage('SonarQ'){
+        stage('Static code analysis SonarQ'){
           environment {
             SCANNER_HOME = tool 'sonar scanner'
           }
@@ -31,6 +31,20 @@ pipeline {
         '''
         
       }
+    }
+
+    stage ('Unit test'){
+
+        steps{
+
+            echo "Inicia test"
+            sh 'cd cidr_convert_api/node'
+            sh 'npm install jest –save-dev'
+
+            sh 'npm test'
+
+        }
+
     }
   }
 }
