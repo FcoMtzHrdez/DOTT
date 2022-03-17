@@ -67,14 +67,17 @@ pipeline {
             echo "estoy entrando al if"
              sh 'docker rm $(sudo docker ps -q -f "ancestor=fcomtz/cidr-app") -f'
           } 
-          
+             sh 'sudo docker ps'
+            
+            try {
+              sh 'sudo docker rmi fcomtz/cidr-app -f'
+            }catch (exception dock){
+              echo "no existe tal imagen"
+            }
+            
              sh'''
-             sudo docker ps
-             
              sudo docker images
-             sudo docker rmi fcomtz/cidr-app
-             sudo docker images
-             
+        
               cd cidr_convert_api/node
               pwd
             
