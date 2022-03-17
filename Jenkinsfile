@@ -63,15 +63,17 @@ pipeline {
             echo "Creando docker"
              
              sh 'sudo docker ps'
-          if (sh ('sudo docker ps -q -f "ancestor=fcomtz/cidr-app" | echo') == ' ') {
-            echo "estoy entrando al if"
-             sh 'docker rm $(sudo docker ps -q -f "ancestor=fcomtz/cidr-app") -f'
-          } 
+          try {
+             sh 'sudo docker rm $(sudo docker ps -q -f "ancestor=fcomtz/cidr-app") -f'
+          } catch (Exception dockCont) {
+            echo "no existe tal contenedor"
+          }
+          
              sh 'sudo docker ps'
             
             try {
               sh 'sudo docker rmi fcomtz/cidr-app -f'
-            } catch (Exception dock){
+            } catch (Exception dockImage){
               echo "no existe tal imagen"
             }
             
