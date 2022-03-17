@@ -43,11 +43,12 @@ pipeline {
             sh 'nodejs --version'
             sh'npm jest -version'
             sh 'npm install jest -–save-dev'
-              
-              try {
-               sh 'npm test'
-              } catch (Exception e) {
-               echo "Unit test was performed, but it found issues in the code" 
+              scrpt{
+                try {
+                 sh 'npm test'
+                } catch (Exception e) {
+                 echo "Unit test was performed, but it found issues in the code" 
+                }
               }
             sh 'pwd'
           }
