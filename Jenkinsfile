@@ -1,6 +1,9 @@
 pipeline {
   agent { label 'fco' }
-
+  environment {
+        dockID = ''
+    }
+  
   stages{
     stage('Build'){
       steps{
@@ -65,7 +68,7 @@ pipeline {
           script {
              sh'''
              sudo docker ps
-             def dockID = sudo docker ps -q -f "ancestor=fcoMtz/cidr-app"
+             dockID = sudo docker ps -q -f "ancestor=fcoMtz/cidr-app"
              echo "MYVAR: ${dockID}"
              sudo docker rm ${dockID} -f
              sudo docker ps
