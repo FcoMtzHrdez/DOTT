@@ -63,18 +63,21 @@ pipeline {
             echo "Creando docker"
              
              sh 'sudo docker ps'
-           sh 'docker rm $(sudo docker ps -q -f "ancestor=fcoMtz/cidr-app") -f'
+          if (!sh 'sudo docker ps -q -f "ancestor=fcoMtz/cidr-app"'=='') {
+             sh 'docker rm $(sudo docker ps -q -f "ancestor=fcoMtz/cidr-app") -f'
+          } 
+          
              sh'''
              sudo docker ps
              
              sudo docker images
-             sudo docker rmi fcoMtz/cidr-app
+             sudo docker rmi fcomtz/cidr-app
              sudo docker images
              
               cd cidr_convert_api/node
               pwd
             
-              sudo docker build -t fcoMtz/cidr-app .
+              sudo docker build -t fcomtz/cidr-app .
               sudo docker images
               '''
          
@@ -86,7 +89,7 @@ pipeline {
             echo "deployando docker"
             sh'''
             sudo docker ps
-            sudo docker run -d -p 80:8000 fcoMtz/cidr-app
+            sudo docker run -d -p 80:8000 fcomtz/cidr-app
             sudo docker ps
             '''
         }
