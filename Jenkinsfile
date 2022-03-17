@@ -43,8 +43,12 @@ pipeline {
             sh 'nodejs --version'
             sh'npm jest -version'
             sh 'npm install jest -–save-dev'
-
-            //sh 'npm test'//
+              
+              try{
+            sh 'npm test'
+              }catch{
+               echo "Unit test was performed, but it found issues in the code" 
+              }
             sh 'pwd'
           }
         }
