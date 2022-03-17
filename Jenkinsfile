@@ -1,7 +1,7 @@
 pipeline {
   agent { label 'fco' }
   environment {
-        dockID = ''
+        dockID
     }
   
   stages{
