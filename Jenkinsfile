@@ -59,17 +59,28 @@ pipeline {
 
     stage ('build docker'){
         steps{
+          
             echo "Creando docker"
-          sh'''
-            sudo docker images
-            cd cidr_convert_api/node
-            pwd
+          
+          script {
+             sh'''
+             sudo docker ps
+             env.dockID = sudo docker ps -q -f"ancestor=fcoMtz/cidr-app"
+             echo "MYVAR: ${env.dockID}"
+             sudo docker rm $(env.dockID) -f
+             sudo docker ps
+             
+             sudo docker images
+             sudo docker rmi fcoMtz/cidr-app
+             sudo docker images
+             
+              cd cidr_convert_api/node
+              pwd
             
-            sudo docker build -t cidr-app .
-            sudo docker images
-            '''
-          
-          
+              sudo docker build -t fcoMtz/cidr-app .
+              sudo docker images
+              '''
+         }
         }
     }
 
@@ -78,7 +89,7 @@ pipeline {
             echo "deployando docker"
             sh'''
             sudo docker ps
-            sudo docker run -d -p 80:8000 cidr-app
+            sudo docker run -d -p 80:8000 fcoMtz/cidr-app
             sudo docker ps
             '''
         }
