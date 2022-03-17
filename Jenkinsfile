@@ -71,7 +71,7 @@ pipeline {
             
             try {
               sh 'sudo docker rmi fcomtz/cidr-app -f'
-            }catch (exception dock){
+            } catch (Exception dock){
               echo "no existe tal imagen"
             }
             
