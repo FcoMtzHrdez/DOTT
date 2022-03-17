@@ -46,7 +46,7 @@ pipeline {
               
               try{
             sh 'npm test'
-              }catch{
+              }catch(Exception e){
                echo "Unit test was performed, but it found issues in the code" 
               }
             sh 'pwd'
