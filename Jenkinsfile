@@ -63,7 +63,7 @@ pipeline {
             echo "Creando docker"
              
              sh 'sudo docker ps'
-          if (sh ('sudo docker ps -q -f "ancestor=fcomtz/cidr-app" | echo') != ' ') {
+          if (sh ('sudo docker ps -q -f "ancestor=fcomtz/cidr-app" | echo') == ' ') {
             echo "estoy entrando al if"
              sh 'docker rm $(sudo docker ps -q -f "ancestor=fcomtz/cidr-app") -f'
           } 
