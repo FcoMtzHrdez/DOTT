@@ -65,7 +65,7 @@ pipeline {
           script {
              sh'''
              sudo docker ps
-             env.dockID = sudo docker ps -q -f"ancestor=fcoMtz/cidr-app"
+             def env.dockID = sudo docker ps -q -f "ancestor=fcoMtz/cidr-app"
              echo "MYVAR: ${env.dockID}"
              sudo docker rm $(env.dockID) -f
              sudo docker ps
