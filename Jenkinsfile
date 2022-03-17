@@ -59,11 +59,11 @@ pipeline {
 
     stage ('build docker'){
         steps{
-          
+          script{
             echo "Creando docker"
              
              sh 'sudo docker ps'
-          if (sh 'sudo docker ps -q -f "ancestor=fcomtz/cidr-app"' !='' ') {
+          if (sh ('sudo docker ps -q -f "ancestor=fcomtz/cidr-app"') !='') {
              sh 'docker rm $(sudo docker ps -q -f "ancestor=fcomtz/cidr-app") -f'
           } 
           
@@ -80,7 +80,7 @@ pipeline {
               sudo docker build -t fcomtz/cidr-app .
               sudo docker images
               '''
-         
+          }
         }
     }
 
