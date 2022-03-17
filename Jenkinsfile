@@ -61,11 +61,9 @@ pipeline {
         steps{
           
             echo "Creando docker"
-          
-          script {
              
              sh 'sudo docker ps'
-             dockID = sh 'sudo docker ps -q -f "ancestor=fcoMtz/cidr-app"'
+          dockID = ""{sh(sudo docker ps -q -f "ancestor=fcoMtz/cidr-app")}""
              sh'''
              echo "MYVAR: ${dockID}"
              sudo docker rm ${dockID} -f
@@ -81,7 +79,7 @@ pipeline {
               sudo docker build -t fcoMtz/cidr-app .
               sudo docker images
               '''
-         }
+         
         }
     }
 
