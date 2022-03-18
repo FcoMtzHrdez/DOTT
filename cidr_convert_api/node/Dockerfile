@@ -2,9 +2,9 @@ FROM node
 
 WORKDIR /app
 
-COPY package.json /app
+COPY /* /app
 
-RUN while true; do npm install && break; done
+RUN . .
 
 COPY . .
 
