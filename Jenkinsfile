@@ -69,6 +69,12 @@ pipeline {
             
               sh 'sudo docker image prune -af'
             
+                try{
+                    sh 'sudo docker rm -f $(sudo docker ps -qa)'
+                }catch(Exception e){
+                    echo e.toString()
+                }
+            
             
              sh'''
              sudo docker images
