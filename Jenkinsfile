@@ -67,7 +67,6 @@ pipeline {
           
              sh 'sudo docker ps'
             
-              sh 'sudo docker rm -f $(sudo docker ps -a -q)'
               sh 'sudo docker image prune -af'
             
             
