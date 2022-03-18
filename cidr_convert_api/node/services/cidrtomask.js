@@ -6,7 +6,7 @@ var mask=[];
     mask.push(256 - Math.pow(2, 8-n));
     value -= n; 
     } catch(e){
-      return "Invalid"
+      return "Invalid";
     }
   }
   return mask.join('.');
