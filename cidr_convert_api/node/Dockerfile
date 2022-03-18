@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY /* /app
 
+
 RUN . .
 
 COPY . .
