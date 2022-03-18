@@ -63,7 +63,6 @@ pipeline {
             echo "Creando docker"
              
              sh 'sudo docker ps'
-            sh  'sudo docker container stop $(sudo docker container ls -aq)'
              sh 'sudo docker system prune -af --volumes'
           
              sh 'sudo docker ps'
