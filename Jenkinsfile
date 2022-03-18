@@ -63,19 +63,14 @@ pipeline {
             echo "Creando docker"
              
              sh 'sudo docker ps'
-          try {
-             sh 'sudo docker rm $(sudo docker ps -q -f "ancestor=fcomtz/cidr-app") -f'
-          } catch (Exception dockCont) {
-            echo "no existe tal contenedor"
-          }
+            sh  'sudo docker container stop $(sudo docker container ls -aq)'
+             sh 'sudo docker system prune -af --volumes'
           
              sh 'sudo docker ps'
             
-            try {
-              sh 'sudo docker rmi fcomtz/cidr-app -f'
-            } catch (Exception dockImage){
-              echo "no existe tal imagen"
-            }
+              sh 'sudo docker rm -f $(sudo docker ps -a -q)'
+              sh 'sudo docker image prune -af'
+            
             
              sh'''
              sudo docker images
