@@ -1,4 +1,4 @@
-import { cidrToMask } from './services/cidrtomask';
+import { cidrToMask } from '../services/cidrtomask';
 import { maskToCidr } from '../services/masktocidr';
 import { ipv4Validation } from '../serives/ipv4validation';
 import { health } from '../services/health';
