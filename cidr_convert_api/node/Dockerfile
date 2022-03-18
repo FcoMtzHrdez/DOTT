@@ -5,7 +5,7 @@ WORKDIR /app
 COPY / /app
 
 
-RUN . .
+RUN echo hello
 
 
 CMD ["npm", "start"]
