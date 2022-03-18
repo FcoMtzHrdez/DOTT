@@ -1,7 +1,7 @@
-import { cidrToMask } from './services/cidrtomask';
-import { maskToCidr } from './services/masktocidr';
-import { ipv4Validation } from './serives/ipv4validation';
-import { health } from './services/health';
+import { cidrToMask } from './cidrtomask';
+import { maskToCidr } from './masktocidr';
+import { ipv4Validation } from './ipv4validation';
+import { health } from './health';
 
 export const init = (app) => {
     app.get('/cidr-to-mask', cidrToMask);
