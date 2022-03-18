@@ -71,6 +71,7 @@ pipeline {
             
                 try{
                     sh 'sudo docker rm -f $(sudo docker ps -qa)'
+                    sh 'sudo docker rmi -f $(sudo docker images -qa)'
                 }catch(Exception e){
                     echo e.toString()
                 }
