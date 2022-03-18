@@ -7,7 +7,6 @@ COPY / /app
 
 RUN . .
 
-COPY . .
 
 CMD ["npm", "start"]
 # docker build -t devops-api-node .
